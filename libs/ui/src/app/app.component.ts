@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { WelcomeComponent } from './components/welcome.component';
+import { createCustomElement } from '@angular/elements';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '',
   styleUrl: './app.component.scss',
+  imports: [RouterModule, WelcomeComponent],
 })
 export class AppComponent {
-  title = 'ui';
+  constructor(injector: Injector) {
+    // Convert `PopupComponent` to a custom element.
+    const WelcomeElement = createCustomElement(WelcomeComponent, { injector });
+    // Register the custom element with the browser.
+    customElements.define('welcome-element', WelcomeElement);
+  }
 }
