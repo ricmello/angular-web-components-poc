@@ -5,16 +5,13 @@ import { createCustomElement } from '@angular/elements';
 
 @Component({
   standalone: true,
-  selector: 'app-root',
+  selector: 'webc-ui-root',
   template: '',
-  styleUrl: './app.component.scss',
   imports: [RouterModule, WelcomeComponent],
 })
 export class AppComponent {
   constructor(injector: Injector) {
-    // Convert `PopupComponent` to a custom element.
     const WelcomeElement = createCustomElement(WelcomeComponent, { injector });
-    // Register the custom element with the browser.
-    customElements.define('welcome-element', WelcomeElement);
+    customElements.define('webc-welcome-element', WelcomeElement);
   }
 }

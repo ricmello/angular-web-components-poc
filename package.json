@@ -2,7 +2,10 @@
   "name": "@web-components/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "demo:ng": "nx serve demo-ng",
+    "demo:web": "nx build ui && nx serve demo-web"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~17.3.0",
@@ -57,6 +60,7 @@
     "@angular/platform-browser": "~17.3.0",
     "@angular/platform-browser-dynamic": "~17.3.0",
     "@angular/router": "~17.3.0",
+    "@ionic/angular": "^8.1.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
